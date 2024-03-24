@@ -1,4 +1,7 @@
 
+// var user = prompt("your GITHUB id", "naveendoddi");
+// sessionStorage.setItem('user', user)
+
 function Profile(){
     var user = sessionStorage.getItem("user")
     document.getElementById("profile_link").href = "https://www.github.com/"+user
@@ -20,7 +23,7 @@ function Profile(){
       document.getElementById("followersNum").innerText = data.followers
     })
 }
-Profile()
+// Profile()
 function Repos(){
     var user = sessionStorage.getItem("user")
     if(document.getElementById("appendReposetries").innerText = " "){
@@ -47,8 +50,8 @@ function Repos(){
               var random = 3
           }
 
-          var colorArray = ["45deg,#4099ff,#73b4ff","45deg,#40ffb3,#0eb978","45deg,#f39393,#d65555","45deg,#016a1f,#55d65b"]
-          div2.style.background = "linear-gradient("+colorArray[random]+")"
+          var colorArray = ["243, 102, 51","253, 218, 13","101, 53, 135","34,139,34"]
+          div2.style.background = "rgb("+colorArray[random]+")"
 
           var div3 = document.createElement("div")
           div3.className = "card-body"
@@ -123,7 +126,7 @@ function Followers(){
             div1.className = "col-sm-6 col-lg-4"
 
             var div2 = document.createElement("div")
-            div2.className = "card hover-img btn"
+            div2.className = "card hover-img btn followersCard"
             div2.addEventListener("click", visit)
 
             var div3 = document.createElement("div")
@@ -162,7 +165,7 @@ function Following(){
             div1.className = "col-sm-6 col-lg-4"
 
             var div2 = document.createElement("div")
-            div2.className = "card hover-img btn"
+            div2.className = "card hover-img btn followingCard"
             div2.addEventListener("click", visit)
 
             var div3 = document.createElement("div")
@@ -201,3 +204,32 @@ function visit(user){
 }
 
 // Profile()
+
+// const url = 'https://neutrinoapi-qr-code.p.rapidapi.com/qr-code';
+// const options = {
+// 	method: 'POST',
+// 	headers: {
+// 		'content-type': 'application/x-www-form-urlencoded',
+// 		'X-RapidAPI-Key': 'f90cbe6df8msh64ea992d6e80c97p1168e5jsn5b36b9b19652',
+// 		'X-RapidAPI-Host': 'neutrinoapi-qr-code.p.rapidapi.com'
+// 	},
+// 	body: new URLSearchParams({
+// 		content: 'http://www.neutrinoapi.com',
+// 		width: '128',
+// 		height: '128',
+// 		'fg-color': '#000000',
+// 		'bg-color': '#ffffff'
+// 	})
+// };
+
+// try {
+// 	const response =  fetch(url, options);
+// 	const result = response.toString();
+//   console.log(result)
+// } catch (error) {
+// 	console.error(error);
+// }
+
+
+// alert(`You are ${age} years old!`);
+// alert("continue")
