@@ -3,7 +3,8 @@
 // sessionStorage.setItem('user', user)
 
 function Profile(){
-    var user = sessionStorage.getItem("user")
+    // var user = sessionStorage.getItem("user")
+    var user = "naveendoddi"
     document.getElementById("profile_link").href = "https://www.github.com/"+user
     document.getElementById("contribution_link").href  = "https://github-contribution-graph-example.vercel.app/?user_name="+user
 
@@ -23,9 +24,10 @@ function Profile(){
       document.getElementById("followersNum").innerText = data.followers
     })
 }
-// Profile()
+Profile()
 function Repos(){
-    var user = sessionStorage.getItem("user")
+  var user = "naveendoddi"
+    // var user = sessionStorage.getItem("user")
     if(document.getElementById("appendReposetries").innerText = " "){
 
       fetch("https://api.github.com/users/"+user+"/repos")
@@ -115,7 +117,8 @@ function Repos(){
 
 }
 function Followers(){
-    var user = sessionStorage.getItem("user")
+    // var user = sessionStorage.getItem("user")
+    var user = "naveendoddi"
     if(document.getElementById("appendFollowers").innerText = " "){
       fetch("https://api.github.com/users/"+user+"/followers")
       .then(response => response.json())
@@ -153,8 +156,8 @@ function Followers(){
     
 }
 function Following(){
-    var user = sessionStorage.getItem("user")
-
+    // var user = sessionStorage.getItem("user")
+    var user = "naveendoddi"
     if(document.getElementById("appendFollowing").innerText = " "){
       fetch("https://api.github.com/users/"+user+"/following")
       .then(response => response.json())
