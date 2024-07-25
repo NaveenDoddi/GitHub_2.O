@@ -25,10 +25,14 @@ function Profile(){
     })
 }
 Profile()
+
+let ReposResponse = false
+
 function Repos(){
   var user = "naveendoddi"
     // var user = sessionStorage.getItem("user")
-    if(document.getElementById("appendReposetries").innerText = " "){
+    if(!ReposResponse){
+      ReposResponse = true;
 
       fetch("https://api.github.com/users/"+user+"/repos")
       .then(response => response.json())
@@ -37,7 +41,7 @@ function Repos(){
         data.map((repo)=> {
 
           var div1 = document.createElement("div")
-          div1.className = "col-sm-6 col-lg-4"
+          div1.className = "col-10 col-sm-6 col-lg-4"
 
           var div2 = document.createElement("div")
           div2.className = "card reposCard"
@@ -64,9 +68,10 @@ function Repos(){
           span.innerText = repo.language
           h6.append(span)
 
-          var h2 = document.createElement("h2")
-          h2.innerText = repo.name
-          h2.className = "text-center m-4"
+          var h3 = document.createElement("h4")
+          h3.innerText = repo.name
+          h3.style.fontWeight = "900"
+          h3.className = "text-center m-4"
 
           var p1 = document.createElement("p")
           p1.innerText = "created_at:"
@@ -106,7 +111,7 @@ function Repos(){
           a2.append(btn2)
 
           div4.append(a1, " ", a2)
-          div3.append(h6, h2, p1, p2, div4)
+          div3.append(h6, h3, p1, p2, div4)
           div2.append(div3)
           div1.append(div2)
           document.getElementById("appendReposetries").append(div1)
@@ -116,10 +121,15 @@ function Repos(){
     }
 
 }
+
+let followersResponse = false
 function Followers(){
     // var user = sessionStorage.getItem("user")
     var user = "naveendoddi"
-    if(document.getElementById("appendFollowers").innerText = " "){
+    if(!followersResponse){
+
+      followersResponse = true
+
       fetch("https://api.github.com/users/"+user+"/followers")
       .then(response => response.json())
       .then((data)=> {
@@ -155,10 +165,15 @@ function Followers(){
     }
     
 }
+
+let followingResponse = false;
 function Following(){
     // var user = sessionStorage.getItem("user")
     var user = "naveendoddi"
-    if(document.getElementById("appendFollowing").innerText = " "){
+    if(!followingResponse){
+
+      followingResponse = true;
+      
       fetch("https://api.github.com/users/"+user+"/following")
       .then(response => response.json())
       .then((data)=> {
@@ -204,6 +219,13 @@ function visit(user){
     
   }, 100);
     
+}
+
+
+function searchFollowing(){
+  console.log(
+    "df"
+  )
 }
 
 // Profile()
