@@ -1,5 +1,9 @@
 body{
   padding-top:20px;
+
+}
+.container{
+  font-weight: bold;
 }
 
 .img-fluid {
@@ -83,6 +87,9 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.displayNum{
+  text-shadow: 2px 2px 10px #000000;
 }
 
 .ms-7 {
@@ -231,7 +238,7 @@ a {
     
   }
   .wrap-input-2 {
-    width: 80%;
+    width: 100%;
     margin: 40px 3%;
     position: relative;
   }
@@ -252,7 +259,7 @@ a {
     left: 50%;
     width: 0;
     height: 2px;
-    background-color: #6c5dd3;
+    background-color: green;
     transition: 0.4s;
   }
   .wrap-input-2 .input:focus ~ .focus-border{

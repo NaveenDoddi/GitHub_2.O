@@ -1,10 +1,13 @@
 
-// var user = prompt("your GITHUB id", "naveendoddi");
-// sessionStorage.setItem('user', user)
+
 
 function Profile(){
-    // var user = sessionStorage.getItem("user")
-    var user = "naveendoddi"
+    var user = sessionStorage.getItem("user")
+    if(user == "null" || user == null){
+      var user = prompt("your GITHUB id", "naveendoddi");
+      sessionStorage.setItem('user', user)
+    }
+    // var user = "naveendoddi"
     document.getElementById("profile_link").href = "https://www.github.com/"+user
     document.getElementById("contribution_link").href  = "https://github-contribution-graph-example.vercel.app/?user_name="+user
 
@@ -29,8 +32,8 @@ Profile()
 let ReposResponse = false
 
 function Repos(){
-  var user = "naveendoddi"
-    // var user = sessionStorage.getItem("user")
+  // var user = "naveendoddi"
+    var user = sessionStorage.getItem("user")
     if(!ReposResponse){
       ReposResponse = true;
 
@@ -68,10 +71,10 @@ function Repos(){
           span.innerText = repo.language
           h6.append(span)
 
-          var h3 = document.createElement("h4")
-          h3.innerText = repo.name
-          h3.style.fontWeight = "900"
-          h3.className = "text-center m-4"
+          var h4 = document.createElement("h4")
+          h4.innerText = repo.name
+          h4.style.fontWeight = "900"
+          h4.className = "text-center m-4"
 
           var p1 = document.createElement("p")
           p1.innerText = "created_at:"
@@ -111,7 +114,7 @@ function Repos(){
           a2.append(btn2)
 
           div4.append(a1, " ", a2)
-          div3.append(h6, h3, p1, p2, div4)
+          div3.append(h6, h4, p1, p2, div4)
           div2.append(div3)
           div1.append(div2)
           document.getElementById("appendReposetries").append(div1)
@@ -124,8 +127,8 @@ function Repos(){
 
 let followersResponse = false
 function Followers(){
-    // var user = sessionStorage.getItem("user")
-    var user = "naveendoddi"
+    var user = sessionStorage.getItem("user")
+    // var user = "naveendoddi"
     if(!followersResponse){
 
       followersResponse = true
@@ -136,7 +139,7 @@ function Followers(){
         document.getElementById("followersBNum").innerText = data.length
           data.map((user)=> {
             var div1 = document.createElement("div")
-            div1.className = "col-sm-6 col-lg-4"
+            div1.className = "col-10 col-sm-6 col-lg-4"
 
             var div2 = document.createElement("div")
             div2.className = "card hover-img btn followersCard"
@@ -168,8 +171,8 @@ function Followers(){
 
 let followingResponse = false;
 function Following(){
-    // var user = sessionStorage.getItem("user")
-    var user = "naveendoddi"
+    var user = sessionStorage.getItem("user")
+    // var user = "naveendoddi"
     if(!followingResponse){
 
       followingResponse = true;
@@ -180,7 +183,7 @@ function Following(){
         document.getElementById("followingBNum").innerText = data.length
           data.map((user)=> {
             var div1 = document.createElement("div")
-            div1.className = "col-sm-6 col-lg-4"
+            div1.className = "col-10 col-sm-6 col-lg-4"
 
             var div2 = document.createElement("div")
             div2.className = "card hover-img btn followingCard"
@@ -221,11 +224,52 @@ function visit(user){
     
 }
 
-
 function searchFollowing(){
-  console.log(
-    "df"
-  )
+  var input = document.getElementById("inputFollowing").value.toUpperCase()
+  var maindiv = document.getElementById("appendFollowing")
+  var myUl = maindiv.getElementsByClassName("col-10 col-sm-6 col-lg-4")
+  for(let i = 0; i < myUl.length; i++){
+    var nameTag = myUl[i].innerText
+    if (nameTag.toUpperCase().indexOf(input) > -1) {
+        myUl[i].style.display = "";
+    } else {
+        myUl[i].style.display = "none";
+    }
+
+  }
+  
+}
+
+function searchFollowers(){
+  var input = document.getElementById("inputFollowers").value.toUpperCase()
+  var maindiv = document.getElementById("appendFollowers")
+  var myUl = maindiv.getElementsByClassName("col-10 col-sm-6 col-lg-4")
+  for(let i = 0; i < myUl.length; i++){
+    var nameTag = myUl[i].innerText
+    if (nameTag.toUpperCase().indexOf(input) > -1) {
+        myUl[i].style.display = "";
+    } else {
+        myUl[i].style.display = "none";
+    }
+
+  }
+  
+}
+
+function searchRepos(){
+  var input = document.getElementById("inputRepos").value.toUpperCase()
+  var maindiv = document.getElementById("appendReposetries")
+  var myUl = maindiv.getElementsByClassName("col-10 col-sm-6 col-lg-4")
+  for(let i = 0; i < myUl.length; i++){
+    var nameTag = myUl[i].getElementsByTagName("h4")[0].innerText
+    if (nameTag.toUpperCase().indexOf(input) > -1) {
+        myUl[i].style.display = "";
+    } else {
+        myUl[i].style.display = "none";
+    }
+
+  }
+  
 }
 
 // Profile()
