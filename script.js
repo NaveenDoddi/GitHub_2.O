@@ -118,6 +118,8 @@ function Repos(){
           div2.append(div3)
           div1.append(div2)
           document.getElementById("appendReposetries").append(div1)
+          document.getElementById("reposLoading").style.display = 'none'
+
           })
       })
 
@@ -162,6 +164,8 @@ function Followers(){
             div2.append(div3)
             div1.append(div2)
             document.getElementById("appendFollowers").append(div1)
+            document.getElementById("followersLoading").style.display = 'none'
+
           })
       })
     
@@ -206,6 +210,7 @@ function Following(){
             div2.append(div3)
             div1.append(div2)
             document.getElementById("appendFollowing").append(div1)
+            document.getElementById("followingLoading").style.display = 'none'
           })
       })
 
@@ -272,6 +277,13 @@ function searchRepos(){
   
 }
 
+function go(){
+  var value = document.getElementById("newUser").value
+  sessionStorage.setItem('user', value)
+  window.location.reload() 
+
+  // document.getElementById("user_name").style.display = "none"
+}
 // Profile()
 
 // const url = 'https://neutrinoapi-qr-code.p.rapidapi.com/qr-code';

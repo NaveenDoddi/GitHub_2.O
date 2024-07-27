@@ -267,3 +267,8 @@ a {
     transition: 0.4s;
     left: 0;
   }
+
+.visually-hidden{
+  display: flex;
+  justify-content: center;
+}
