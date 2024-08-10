@@ -27,7 +27,7 @@ function Profile(){
       document.getElementById("followersNum").innerText = data.followers
     })
 }
-Profile()
+// Profile()
 
 let ReposResponse = false
 
@@ -314,3 +314,76 @@ function go(){
 
 // alert(`You are ${age} years old!`);
 // alert("continue")
+
+
+
+async function running(){
+  var commits = []
+  await fetch('https://api.github.com/repos/naveendoddi/portFolio/commits')
+  .then(response => response.json())
+  .then((data)=>{
+    data.map((post)=>{
+      var object = {
+        message: post.commit.message,
+        date: post.commit.committer.date,
+        mail: post.commit.committer.email,
+        numbers: post.stats
+      }
+      commits.push(object)
+    })
+    
+    
+  })
+  return commits
+}
+// running()
+
+async function running2() {
+  data.map((post)=>{
+    fetch('https://api.github.com/repos/naveendoddi/portFolio/commits/'+post.sha)
+    .then(response => response.json())
+    .then((data)=>{
+      data.map((post)=>{
+        var object = {
+          message: post.commit.message,
+          date: post.commit.committer.date,
+          mail: post.commit.committer.email,
+          numbers: post.stats
+        }
+        commits.push(object)
+      })
+    })
+  })
+}
+
+
+
+function get_repo_details(element){
+  var reposetry = element.innerText
+
+  var commits = running()
+  console.log(commits)
+
+  var xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
+  var yValues = [55, 49, 44, 24, 15];
+  var barColors = ["red", "green","blue","orange","brown"];
+  
+  new Chart("myChart", {
+    type: "bar",
+    data: {
+      labels: xValues,
+      datasets: [{
+        backgroundColor: barColors,
+        data: yValues
+      }]
+    },
+    options: {
+      legend: {display: false},
+      title: {
+        display: true,
+        text: "World Wine Production 2018"
+      }
+    }
+  });
+
+}

@@ -1,15 +1,17 @@
 body{
   padding-top:20px;
+  padding-bottom: 50px;
 
 }
 .container{
   font-weight: bold;
+
+  
 }
 
 .img-fluid {
     max-width: 100%;
     height: auto;
-    
 }
 
 .card {
@@ -111,6 +113,32 @@ a {
     transform: scale(1.05);
     box-shadow: 10px 10px 50px rgba(3, 25, 25, 4);
 
+}
+
+#appendReposetries{
+  display: flex;
+  justify-content: start;
+
+}
+#appendReposetries li{
+  padding: 10px 5px;
+  border-radius: 5px;
+  list-style-type: none;
+}
+#appendReposetries li:hover{
+  background-color: #1d2634;
+  border: 1px solid white;
+
+  color: white;
+  /* transform: scale(1.1); */
+  cursor: pointer;
+}
+
+.repoBody{
+  width: 100%;
+  padding: 5px;
+  height: 100%;
+  border: 5px solid #1d2634;
 }
 
 .reposCard span {
