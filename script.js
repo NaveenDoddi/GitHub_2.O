@@ -10,6 +10,7 @@ function Profile(){
     // var user = "naveendoddi"
     document.getElementById("profile_link").href = "https://www.github.com/"+user
     document.getElementById("contribution_link").href  = "https://github-contribution-graph-example.vercel.app/?user_name="+user
+    document.getElementById("contributions_pic").src="https://ghchart.rshah.org/"+user
 
     fetch("https://api.github.com/users/"+user)
     .then(response => response.json())
@@ -27,7 +28,7 @@ function Profile(){
       document.getElementById("followersNum").innerText = data.followers
     })
 }
-// Profile()
+Profile()
 
 let ReposResponse = false
 

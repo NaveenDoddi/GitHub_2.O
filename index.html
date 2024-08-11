@@ -157,26 +157,11 @@
 
           <h6>NOTE: only 30 reposetries are displayed here</h6>
           
-          <div class="mt-2" id="appendReposetries">
-
-            <ul>
-              <li onclick="get_repo_details(this)">github1111</li>
-              <li onclick="get_repo_details(this)">github1111</li>
-              <li onclick="get_repo_details(this)">github1111</li>
-              <li onclick="get_repo_details(this)">github1111</li>
-            </ul>
-
-            <div class="repoBody">
-
-              <div>
-                <canvas id="myChart" style="width:100%;max-width:600px; background-color: white;"></canvas>
-              </div>
-
-            </div>
+          <div class="mt-2 row d-flex justify-content-center" id="appendReposetries">
             
-            <!-- <div class="spinner-border" role="status" id="reposLoading">
+            <div class="spinner-border" role="status" id="reposLoading">
               <span class="visually-hidden">Loading...</span>
-            </div> -->
+            </div>
 
           </div>
   
@@ -259,7 +244,7 @@
               </tr>
               <tr>
                 <td colspan="2">
-                  <img src="https://ghchart.rshah.org/naveendoddi"/>
+                  <img id="contributions_pic" alt="contributions"/>
                 </td>
               </tr>
             </table>
