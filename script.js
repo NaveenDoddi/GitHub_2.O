@@ -1,12 +1,30 @@
 
+var user = window.location.href.split('=')[1]
+
+if(user == "null" || user == null){
+  var user1 = prompt("your GITHUB id", "naveendoddi");
+  window.location.href = window.location.href+"?user=" + user1
+}
+
+function visit(user){
+
+  var value = user.target.getElementsByTagName("h5")[0].innerText
+  var currentUrl = window.location.href.split("?")[0]
+  window.location.href = currentUrl+"?user=" + value
+  
+    
+}
 
 
-function Profile(){
-    var user = sessionStorage.getItem("user")
-    if(user == "null" || user == null){
-      var user = prompt("your GITHUB id", "naveendoddi");
-      sessionStorage.setItem('user', user)
-    }
+function go(){
+  var value = document.getElementById("newUser").value
+  var currentUrl = window.location.href.split("?")[0]
+  window.location.href = currentUrl+"?user=" + value
+  
+}
+
+(function Profile(){
+    
     // var user = "naveendoddi"
     document.getElementById("profile_link").href = "https://www.github.com/"+user
     document.getElementById("contribution_link").href  = "https://github-contribution-graph-example.vercel.app/?user_name="+user
@@ -27,14 +45,13 @@ function Profile(){
       document.getElementById("followingNum").innerText = data.following
       document.getElementById("followersNum").innerText = data.followers
     })
-}
-Profile()
+}())
 
 let ReposResponse = false
 
 function Repos(){
   // var user = "naveendoddi"
-    var user = sessionStorage.getItem("user")
+    
     if(!ReposResponse){
       ReposResponse = true;
 
@@ -130,7 +147,7 @@ function Repos(){
 
 let followersResponse = false
 function Followers(){
-    var user = sessionStorage.getItem("user")
+    
     // var user = "naveendoddi"
     if(!followersResponse){
 
@@ -176,7 +193,7 @@ function Followers(){
 
 let followingResponse = false;
 function Following(){
-    var user = sessionStorage.getItem("user")
+    
     // var user = "naveendoddi"
     if(!followingResponse){
 
@@ -216,17 +233,6 @@ function Following(){
       })
 
     }
-    
-}
-
-function visit(user){
-  var name = user.target.getElementsByTagName("h5")[0].innerText
-  sessionStorage.setItem("user", name)
-
-  setTimeout(() => {
-    window.location.reload()
-    
-  }, 100);
     
 }
 
@@ -278,13 +284,6 @@ function searchRepos(){
   
 }
 
-function go(){
-  var value = document.getElementById("newUser").value
-  sessionStorage.setItem('user', value)
-  window.location.reload() 
-
-  // document.getElementById("user_name").style.display = "none"
-}
 // Profile()
 
 // const url = 'https://neutrinoapi-qr-code.p.rapidapi.com/qr-code';

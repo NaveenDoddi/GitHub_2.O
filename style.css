@@ -1,12 +1,11 @@
 body{
-  padding-top:20px;
-  padding-bottom: 50px;
-
+  padding: 2% 1%;
 }
-.container{
+.mainContainer{
   font-weight: bold;
 
-  
+
+  margin: 5% 2%;
 }
 
 .img-fluid {
