@@ -7,13 +7,16 @@ if(user == "null" || user == null){
 }
 
 function visit(user){
-
+  console.log(user.target)
   var value = user.target.getElementsByTagName("h5")[0].innerText
   var currentUrl = window.location.href.split("?")[0]
   window.location.href = currentUrl+"?user=" + value
   
     
 }
+
+
+// for sumanth
 
 
 function go(){
@@ -160,10 +163,11 @@ function Followers(){
           data.map((user)=> {
             var div1 = document.createElement("div")
             div1.className = "col-10 col-sm-6 col-lg-4"
+            div1.addEventListener("click", visit)
 
             var div2 = document.createElement("div")
             div2.className = "card hover-img btn followersCard"
-            div2.addEventListener("click", visit)
+            // div2.addEventListener("click", visit)
 
             var div3 = document.createElement("div")
             div3.className = "card-body p-4 text-center border-bottom"
@@ -206,10 +210,11 @@ function Following(){
           data.map((user)=> {
             var div1 = document.createElement("div")
             div1.className = "col-10 col-sm-6 col-lg-4"
+            div1.addEventListener("click", visit)
 
             var div2 = document.createElement("div")
             div2.className = "card hover-img btn followingCard"
-            div2.addEventListener("click", visit)
+            // div2.addEventListener("click", visit)
 
             var div3 = document.createElement("div")
             div3.className = "card-body p-4 text-center border-bottom"
